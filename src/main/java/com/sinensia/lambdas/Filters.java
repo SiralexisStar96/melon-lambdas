@@ -74,5 +74,22 @@ public final class Filters {
 
     }
 
+    public static List<Melon> filterMelons(List<Melon> melons, MelonPredicate predicate){
+        if(melons == null){
+            //reviento
+            throw new AssertionError("Utility class can not be instantiated");
+        }
+
+        List<Melon> result = new ArrayList<>();
+        for(Melon melon : melons){
+            if(melon!=null && predicate.test(melon))
+            {
+                result.add(melon);
+            }
+
+        }
+        return result;
+    }
+
 
 }

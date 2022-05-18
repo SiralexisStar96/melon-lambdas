@@ -36,9 +36,22 @@ public class Main {
         List<Melon> found = Filters.filterByWeight(melons, 1200);
         System.out.println("Lista melones de 1200g:" + found);
 
+
+        System.out.println("");
         List<Melon> mayor = Filters.filterByWeigthMasGrande(melons);
         System.out.println("Lista melones de mas de 1200g:" + mayor);
 
+
+        System.out.println("");
+        System.out.println("melones gac:");
+        //GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
+        List<Melon> gac = Filters.filterMelons(melons, new GacMelonPredicate());
+
+        for(Melon m : gac){
+            System.out.println(gac);
+
+
+        }
     }
 
 
