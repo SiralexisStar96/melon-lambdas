@@ -32,7 +32,19 @@ public class Main {
             System.out.println(bailan.get(i).toString());
         }
 
+        //Generamos una nueva lista para filtrar por peso
+        List<Melon> found = Filters.filterByWeight(melons, 1200);
+        System.out.println("Lista melones de 1200g:" + found);
+
+        List<Melon> mayor = Filters.filterByWeigthMasGradne(melons, 1200);
+        System.out.println("Lista melones de mas de 1200g:" + mayor);
+
+
+
+
     }
+
+
 
 
 

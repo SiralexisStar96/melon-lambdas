@@ -33,4 +33,45 @@ public final class Filters {
 
     }
 
+
+
+
+
+    public static List<Melon> filterByWeight(List<Melon> melons, int weigth) {
+        if(melons == null ) {
+            throw new IllegalArgumentException("Melons/type cannot be null");
+        }
+        if(melons.isEmpty()) {
+            return melons;
+        }
+        List<Melon> pesos = new ArrayList<>();
+        for(Melon melon : melons) {
+            if(melon!=null && melon.getWeight() == weigth) {
+                pesos.add(melon);
+            }
+        }
+        return pesos;
+    }
+
+
+    public static List<Melon> filterByWeigthMasGradne(List<Melon> melons, int weigth){
+
+        if(melons == null ) {
+            throw new IllegalArgumentException("Melons/type cannot be null");
+        }
+        if(melons.isEmpty()) {
+            return melons;
+        }
+        List<Melon> masGrande = new ArrayList<>();
+        for(Melon melon : melons) {
+            if(melon!=null && melon.getWeight() >  weigth) {
+
+                masGrande.add(melon);
+            }
+        }
+        return masGrande;
+
+
+
+    }
 }
