@@ -1,8 +1,8 @@
 package com.sinensia.lambdas;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
 
@@ -62,7 +62,6 @@ public class Main {
 
         for(Melon m : heavy){
             System.out.println(m);
-
         }
         System.out.println("");
 
@@ -73,19 +72,15 @@ public class Main {
 
         for(Melon m : superheavy){
             System.out.println(m);
-
         }
 
         System.out.println("melones europeos: ");
         //Remplazamos por un lambda.
-
         for(Melon m : Filters.filterMelons(melons, melon -> melon !=null && melon.getOrigin().equalsIgnoreCase("Europe"))){
             System.out.println(m);
-
         }
 
         //Probamos el filtrado generico
-
         System.out.println("Lista de sandias");
         List<Melon> watermelons = Filters.filter(melons, (Melon m) ->m.getType().equalsIgnoreCase("watermelon") );
         for(Melon m : watermelons)
@@ -93,9 +88,43 @@ public class Main {
             System.out.println(m);
         }
 
+        //Vamos a ver la implementación de Streams
+            //implementamos el forEach bucle de lectura
+        System.out.println("Stream de melones");
+        melons.stream()
+                .forEach(melon ->System.out.println(melon));
+
+        //Aplicamos un filtro
+        //Imprimimos
+        System.out.println("Stream de melones filtrados");
+        melons.stream()
+                .filter(melon-> "gac".equalsIgnoreCase(melon.getType()))
+                .forEach(melon -> System.out.println(melon));
 
 
+        System.out.println("primer elemento del stream");
+        //Encapsulacion de un tipo arbitrario. Control de excepciones
+        Optional<Melon> primero = melons.stream()
+                .findFirst();
+       //Si hay un elemento presente. Lo devolvemos con el get.
 
+        if(primero.isPresent()){
+            System.out.println(primero.get());
+        }
+
+        //El Bucle if con lamda:
+        primero.ifPresent(melon -> System.out.println(melon));
+
+        //Aun más simplificado.
+        melons.stream()
+                .findFirst()
+                .ifPresent(melon -> System.out.println(melon));
+
+        //Mapeo y obtengo pesos y el promedio
+        melons.stream()
+                .mapToInt(melon -> melon.getWeight())
+                .average()
+                .ifPresent(average -> System.out.println("Peso promedio: " +average));
 
 
 
