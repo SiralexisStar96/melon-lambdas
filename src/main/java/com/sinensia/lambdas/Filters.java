@@ -90,6 +90,22 @@ public final class Filters {
         }
         return result;
     }
+    //Filtro generico para filtrar por melones
+    public static <T> List<T> filter(List<T> list, Predicate<T> predicate){
+        if(list == null){
+            //reviento
+            throw new AssertionError("List cannot be null");
+        }
 
+        List<T> result = new ArrayList<>();
+        for(T t: list){
+            if(t!=null && predicate.test(t))
+            {
+                result.add(t);
+            }
+
+        }
+        return result;
+    }
 
 }
