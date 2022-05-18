@@ -43,15 +43,47 @@ public class Main {
 
 
         System.out.println("");
+
+        //APLICAMOS EL GAC PARA FILTRAR.
         System.out.println("melones gac:");
         //GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
         List<Melon> gac = Filters.filterMelons(melons, new GacMelonPredicate());
 
         for(Melon m : gac){
-            System.out.println(gac);
+            System.out.println(m);
 
 
         }
+        System.out.println("");
+
+        //Otro ejemplo con melones pesados
+        System.out.println("melones heavy:");
+        //GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
+        List<Melon> heavy = Filters.filterMelons(melons, new HeavyMelonPredicate());
+
+        for(Melon m : heavy){
+            System.out.println(m);
+
+        }
+        System.out.println("");
+
+        System.out.println("melones super-peasados: ");
+        //GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
+        List<Melon> superheavy = Filters.filterMelons(melons, new MelonPredicate() {
+            @Override
+            public boolean test(Melon melon) {
+                return melon !=null && melon.getWeight()>=6000;
+            }
+        });
+
+        for(Melon m : superheavy){
+            System.out.println(m);
+
+        }
+
+
+
+
     }
 
 
