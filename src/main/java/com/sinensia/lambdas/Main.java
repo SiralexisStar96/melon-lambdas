@@ -36,11 +36,8 @@ public class Main {
         List<Melon> found = Filters.filterByWeight(melons, 1200);
         System.out.println("Lista melones de 1200g:" + found);
 
-        List<Melon> mayor = Filters.filterByWeigthMasGradne(melons, 1200);
+        List<Melon> mayor = Filters.filterByWeigthMasGrande(melons);
         System.out.println("Lista melones de mas de 1200g:" + mayor);
-
-
-
 
     }
 

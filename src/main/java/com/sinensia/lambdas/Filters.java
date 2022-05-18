@@ -35,8 +35,6 @@ public final class Filters {
 
 
 
-
-
     public static List<Melon> filterByWeight(List<Melon> melons, int weigth) {
         if(melons == null ) {
             throw new IllegalArgumentException("Melons/type cannot be null");
@@ -45,6 +43,7 @@ public final class Filters {
             return melons;
         }
         List<Melon> pesos = new ArrayList<>();
+
         for(Melon melon : melons) {
             if(melon!=null && melon.getWeight() == weigth) {
                 pesos.add(melon);
@@ -54,7 +53,9 @@ public final class Filters {
     }
 
 
-    public static List<Melon> filterByWeigthMasGradne(List<Melon> melons, int weigth){
+    public static List<Melon> filterByWeigthMasGrande(List<Melon> melons){
+
+        int i = 1200;
 
         if(melons == null ) {
             throw new IllegalArgumentException("Melons/type cannot be null");
@@ -64,14 +65,14 @@ public final class Filters {
         }
         List<Melon> masGrande = new ArrayList<>();
         for(Melon melon : melons) {
-            if(melon!=null && melon.getWeight() >  weigth) {
+            if(melon!=null && melon.getWeight() >  i) {
 
                 masGrande.add(melon);
             }
         }
         return masGrande;
 
-
-
     }
+
+
 }
