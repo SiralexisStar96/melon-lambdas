@@ -58,7 +58,6 @@ public class Main {
 
         //Otro ejemplo con melones pesados
         System.out.println("melones heavy:");
-        //GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
         List<Melon> heavy = Filters.filterMelons(melons, new HeavyMelonPredicate());
 
         for(Melon m : heavy){
@@ -67,14 +66,10 @@ public class Main {
         }
         System.out.println("");
 
+        //Interficie como parametro del metodo. Asi nos ahorramos de generar clases
         System.out.println("melones super-peasados: ");
-        //GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
-        List<Melon> superheavy = Filters.filterMelons(melons, new MelonPredicate() {
-            @Override
-            public boolean test(Melon melon) {
-                return melon !=null && melon.getWeight()>=6000;
-            }
-        });
+        //Remplazamos por un lambda.
+        List<Melon> superheavy = Filters.filterMelons(melons, melon -> melon !=null && melon.getWeight()>=6000);
 
         for(Melon m : superheavy){
             System.out.println(m);
